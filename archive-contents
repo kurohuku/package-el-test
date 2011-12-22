@@ -1,0 +1,4 @@
+(1
+ (test-a . [(0 0 1) nil "test-a package." single])
+ (test-b . [(0 0 1) ((test-c (0))) "test-b package. depends on test-c." single])
+ (test-c . [(0 0 1) nil "test-c package." single]))

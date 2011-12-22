@@ -1,0 +1,32 @@
+* 概要
+package.elを眺めてわかった気になったこと。
+
+* レポジトリにおかれるファイル
+- archive-contents レポジトリにあるパッケージ一覧を記述したファイル。
+- {パッケージ名}-{バージョン}.el パッケージファイル。種別がsingleのパッケージの場合。
+- {パッケージ名}-{バージョン}.tar パッケージファイル。種別がtarのパッケージの場合。
+- {パッケージ名}-readme.txt パッケージの説明を記述したファイル。無くても良い。
+- 種別がtarの場合、{パッケージ名}-pkg.elというファイルが含まれている必要がある。
+  - {パッケージ名}-pkg.elにはdefiine-packageによるパッケージ定義を含む。
+
+* archive-contents
+- car部が要求するpackage.elのバージョン、cdr部がパッケージのリスト
+  - car部の値がpackage-archive-versionの値よりも大きいとエラーとなる
+- パッケージはcar部がパッケージ名、cdr部がpackage-description-vectorで表現される
+
+
+* package-description-vector
+1. バージョンをあらわすリスト。version-to-list, package-version-join を参照。
+2. requirements。依存するパッケージのリスト。(パッケージ名 バージョンのリスト)形式。
+3. ドキュメント(文字列)
+4. single または tar
+
+
+* 設定
+
+: (setf package-archives
+:      '(("test" . "https://github.com/kurohuku/package-el-test/raw/") ;; オレオレレポジトリ
+: 	 ("ELPA" . "http://tromey.com/elpa/")
+:	 ("gnu" . "http://elpa.gnu.org/packages/")
+:	 ("marmalade" . "http://marmalade-repo.org/packages/")))
+
