@@ -25,7 +25,7 @@ package.elを眺めてわかった気になったこと。
 * 設定
 
 : (setf package-archives
-:      '(("test" . "https://github.com/kurohuku/package-el-test/raw/") ;; オレオレレポジトリ
+:      '(("test" . "https://github.com/kurohuku/package-el-test/raw/master/") ;; オレオレレポジトリ
 : 	 ("ELPA" . "http://tromey.com/elpa/")
 :	 ("gnu" . "http://elpa.gnu.org/packages/")
 :	 ("marmalade" . "http://marmalade-repo.org/packages/")))
